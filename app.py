@@ -2,12 +2,14 @@ from flask import request, Flask, render_template, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime, timedelta, date
 import datetime
+from flask_cors import CORS
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///Library.sqlite3'
 app.config['SECRET_KEY'] = "random string"
 
 db = SQLAlchemy(app)
+CORS(app)
 
 @app.route('/')
 def home():

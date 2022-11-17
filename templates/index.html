@@ -1,0 +1,15 @@
+{% extends  "layout.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+{% endblock %}
+<h1>List of Employees</h1>
+{% if employees %}
+    {% for employee in employees: %}
+      <p>{{ employee.name }}</p>
+      <p>{{ employee.title }}</p>
+      <p>{{ employee.email }}</p>
+      <p>{{ employee.department }}</p>
+
+      <img src="/static/Library.jpg employee.profile_image | default('profile.jpg') }}" alt={{ employee.name }} width="120" height="90" />
+    {% endfor %}
+  {% endif %}

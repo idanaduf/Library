@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block title %}Customers{% endblock %}
+{% block head %}
+{{super()}}
+{% endblock %}
+{% block content %}
+<br>
+<div class="d-flex justify-content-center">
+    <a class="btn btn-outline-dark" href="/new_customer" role="button">Add Customer</a>
+</div>
+<br>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">{{selected.customer_name}}</h5>
+                <p class="card-text">
+                    {{selected.customer_age}}
+                    <br>
+                    {{selected.customer_city}}
+                </p>
+                <p class="card-text"><small class="text-muted">{{selected.customer_id}}</small></p>
+            </div>
+
+        </div>
+        <br>
+    </div>
+</div>
+
+</div>
+{% endblock %}

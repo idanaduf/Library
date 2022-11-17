@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% block title %}Books{% endblock %}
+{% block head %}
+{{ super() }}
+<style type="text/css">
+  .alltext {
+    color: #0c79e5;
+  }
+</style>
+{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-center">
+  <h1>Books</h1>
+</div>
+<hr>
+{%- if no_book == True %}
+<div class="d-flex justify-content-center">
+  <h2>Book doesn't exist.</h2>
+</div>
+{% endif %}
+<hr>
+<div class="d-grid">
+  <a style="color: rgb(2, 2, 2);padding-left: 00%;" href="/newbook" role="button">Add Book</a>
+  <br>
+</div>
+<div class="display-1">
+  <form action="/SearchBooks" class="form-inline" method="POST">
+    <input type="serch" class="form-control" name="book_name" 
+    <!-- placeholder="Search"> -->
+    <button class="btn btn" type="submit">Submit</button, >
+  </form>
+</div>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  {% for one_book in all_books %}
+  <div class="col">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">book name: {{one_book.book_name}}</h5>
+        <p class="card-text"> book Author: {{one_book.book_author}} <br>
+          publish date: {{one_book.publish_date}} <br>
+          book type: {{one_book.book_type}}</p>
+      </div>
+      <a class="btn btn-danger" href="/deletebook/{{one_book.id}}">Delete</a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

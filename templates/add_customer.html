@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block title %}
+<title>Add a New Customer</title>
+{% endblock %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-center">
+    <form action="/customers" method="POST">
+        <label for="customer_name">customer_Name: </label>
+        <input type="text" name="customer_name" placeholder="customer Name">
+        <hr>
+        <label for="customer_age">customer_Age: </label>
+        <input type="text" name="customer_age" placeholder="customer Age">
+        <hr>
+        <label for="customer_city">customer_city: </label>
+        <input type="text" name="customer_city" placeholder="customer city">
+        <hr>
+        <div class="justify-content-center">
+            <button class="btn btn-outline-dark" type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

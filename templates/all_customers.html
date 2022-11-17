@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+{% block title %}Customers{% endblock %}
+{% block head %}
+{{super()}}
+{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-center">
+    <h1>Customers</h1>
+  </div>
+<div class="d-grid">
+    <a style="color: rgb(0, 0, 0);padding-left: 00%;" href="/new_customer" role="button">Add Customer</a>
+</div>
+<br>
+<div class="display-1">
+    <form action="/SearchCustomer" class="form-inline" method="POST">
+      <input type="text" class="form-control" name="customer_name" 
+      <!-- placeholder="Search a customer"> -->
+      <button class="btn btn" type="submit">Submit</button>
+    </form>
+  </div>
+<br>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    {%- for one_customer in customer %}
+    <div class="col">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">{{one_customer.customer_name}}</h5>
+                <p class="card-text">
+                    {{one_customer.customer_age}}
+                    <br>
+                    {{customer.customer_city}}
+                </p>
+                <p class="card-text">
+                    <small class="text-muted">{{one_customer.customer_id}}</small>
+                </p>
+            </div>
+            <a class="btn btn-danger" href="/deletecustomers/{{one_customer.id}}">Delete</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
